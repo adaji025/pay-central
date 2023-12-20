@@ -1,11 +1,12 @@
-"use client";
-
-import { Menu, Select, TextInput } from "@mantine/core";
+import { Select, TextInput } from "@mantine/core";
 import { CiSearch } from "react-icons/ci";
 import { FaGlobeAfrica } from "react-icons/fa";
 import Header from "./components/Header";
 import Waitlist from "./components/Waitlist";
-import CompanyCard from "./components/CompanyCard";
+import PaymentProviders from "./components/PaymentProviders";
+import FreeProviders from "./components/FreeProviders";
+import PopularProviders from "./components/PopularProviders";
+import Footer from "./components/Footer";
 
 export default function HomePage() {
   return (
@@ -23,7 +24,7 @@ export default function HomePage() {
               preferences, and global transactions.
             </p>
           </div>
-          <div className="flex flex-col sm:flex-row gap-3 pr-5 md:pr-10">
+          <div className="flex flex-col sm:flex-row gap-3">
             <TextInput
               size="md"
               leftSection={<CiSearch />}
@@ -39,33 +40,22 @@ export default function HomePage() {
             <Select
               size="md"
               leftSection={<CiSearch />}
-              placeholder="Location"
-              className="w-full sm:w-1/5"
+              placeholder="City"
+              className="w-full sm:w-1/5 hidden sm:inline"
             />
           </div>
-          <div className="my-10">
-            <div className="flex justify-between mb-5">
-              <div className="text-2xl font-semibold">
-                Top payment providers
-              </div>
-              <Menu position="left-start" shadow="md" width={200}>
-                <Menu.Target>
-                  <button className="bg-gray-100 flex items-center px-5 py-2">Featured</button>
-                </Menu.Target>
-                <Menu.Dropdown>
-                  <Menu.Item>one</Menu.Item>
-                  <Menu.Item>one</Menu.Item>
-                  <Menu.Item>one</Menu.Item>
-                </Menu.Dropdown>
-              </Menu>
-            </div>
-            <CompanyCard />
-          </div>
+
+          <PaymentProviders />
+          <FreeProviders />
+          <PopularProviders />
         </div>
-        <div className="flex-1 bg-gray-100 pt-20 pl-10 pr-10">
+
+        <div className="flex-1 bg-gray-100 pt-20 pr-5 pl-5 sm:pl-10 sm:pr-10">
           <Waitlist />
         </div>
       </div>
+
+      <Footer />
     </div>
   );
 }
