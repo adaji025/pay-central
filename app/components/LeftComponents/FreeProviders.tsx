@@ -16,7 +16,7 @@ const FreeProviders = () => {
       </div>
       <div className="grid gap-5">
         {[...Array(2)].map((_, i) => (
-          <CompanyCard />
+          <CompanyCard key={i} />
         ))}
       </div>
     </div>

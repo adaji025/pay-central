@@ -8,11 +8,17 @@ import { IoChevronDown } from "react-icons/io5";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useDisclosure } from "@mantine/hooks";
 import SideMenu from "./SideMenu";
+import WaitlistModal from "./WaitlistModal";
 
 const Header = () => {
   const [opened, { open, close }] = useDisclosure(false);
+  const [openWaitlist, setOpenWaitlist] = useState(false);
   return (
     <Fragment>
+      <WaitlistModal
+        opened={openWaitlist}
+        close={() => setOpenWaitlist(false)}
+      />
       <SideMenu close={close} opened={opened} />
       <div className="shadow">
         <div className="bg-white max-w-[1400px] mx-auto flex items-center justify-between p-5 md:p-10">
@@ -52,7 +58,10 @@ const Header = () => {
               </Menu.Dropdown>
             </Menu>
           </div>
-          <button className="bg-[#E35669] text-white px-4 py-2 flex gap-2 items-center">
+          <button
+            className="bg-[#E35669] text-white px-4 py-2 flex gap-2 items-center"
+            onClick={() => setOpenWaitlist(true)}
+          >
             <div className="text-xs lg:text-base">Join the waitlist</div>
             <FaArrowRight className="hidden sm:inline" />
           </button>

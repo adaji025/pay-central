@@ -28,7 +28,7 @@ const PaymentProviders = () => {
       </div>
       <div className="grid gap-5">
               {[...Array(4)].map((_, i) => (
-                <CompanyCard />
+                <CompanyCard key={i} />
               ))}
             </div>
     </div>

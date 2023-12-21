@@ -1,24 +1,28 @@
 import React from "react";
-import { TextInput } from "@mantine/core";
+import { Modal, TextInput } from "@mantine/core";
 import { LuUser } from "react-icons/lu";
 import { FaArrowRight } from "react-icons/fa";
 import { MdOutlineEmail } from "react-icons/md";
 
-const Waitlist = () => {
+type IProps = {
+  opened: boolean;
+  close: () => void;
+};
+
+const WaitlistModal = ({ opened, close }: IProps) => {
   return (
-    <div className="w-full mx-auto px-[16px] py-[24px] flex flex-col gap-[16px] mb-[10px] bg-white">
-      <div className="max-w-[457px]">
+    <Modal centered radius={0} opened={opened} onClose={close}>
+      <div className="text-center">
         <h2 className="font-Spline-Sans my-[8px] font-[600] text-[20px]">
-          👋🏽 Join the waitlist
+          👋🏽 Join the waitlist for PayCentral
         </h2>
         <p className="font-Spline-Sans font-[400] text-[16px] text-[#736D6D] leading-[24px]">
           Secure your spot on our exclusive waitlist for early access to the
           finest payment curation experience.
         </p>
-      </div>
-      <div>
         <TextInput
           size="md"
+          mt={16}
           radius={2}
           leftSection={<LuUser />}
           placeholder="Full Name"
@@ -39,8 +43,8 @@ const Waitlist = () => {
           <FaArrowRight className="hidden sm:inline" />
         </button>
       </div>
-    </div>
+    </Modal>
   );
 };
 
-export default Waitlist;
+export default WaitlistModal;
