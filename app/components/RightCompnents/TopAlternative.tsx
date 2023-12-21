@@ -34,8 +34,8 @@ const TopAlternative = () => {
       </h2>
       <div className="grid">
         {[...Array(2)].map((_, i) => (
-          <Fragment>
-            <Card key={i} />
+          <Fragment key={i}>
+            <Card />
             <Divider />
           </Fragment>
         ))}
