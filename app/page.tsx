@@ -2,15 +2,15 @@ import { Select, TextInput } from "@mantine/core";
 import { CiSearch } from "react-icons/ci";
 import { FaGlobeAfrica } from "react-icons/fa";
 import Header from "./components/Header";
-import Waitlist from "./components/Waitlist";
-import PaymentProviders from "./components/PaymentProviders";
-import FreeProviders from "./components/FreeProviders";
-import PopularProviders from "./components/PopularProviders";
+import Waitlist from "./components/LeftComponents/Waitlist";
+import PaymentProviders from "./components/LeftComponents/PaymentProviders";
+import FreeProviders from "./components/LeftComponents/FreeProviders";
+import PopularProviders from "./components/LeftComponents/PopularProviders";
 import Footer from "./components/Footer";
-import PaymentDetails from "./components/PaymentDetails";
-import RatingComponent from "./components/RatingComponent";
-import TopAlternative from "./components/TopAlternative";
-import LatestOnProduct from "./components/LatestOnProduct";
+import PaymentDetails from "./components/RightCompnents/PaymentDetails";
+import RatingComponent from "./components/RightCompnents/RatingComponent";
+import TopAlternative from "./components/RightCompnents/TopAlternative";
+import LatestOnProduct from "./components/RightCompnents/LatestOnProduct";
 
 export default function HomePage() {
   return (
