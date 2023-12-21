@@ -8,6 +8,9 @@ import FreeProviders from "./components/FreeProviders";
 import PopularProviders from "./components/PopularProviders";
 import Footer from "./components/Footer";
 import PaymentDetails from "./components/PaymentDetails";
+import RatingComponent from "./components/RatingComponent";
+import TopAlternative from "./components/TopAlternative";
+import LatestOnProduct from "./components/LatestOnProduct";
 
 export default function HomePage() {
   return (
@@ -54,6 +57,9 @@ export default function HomePage() {
         <div className="flex-1 bg-gray-100 pt-20 pr-5 pl-5 sm:pl-10 sm:pr-10">
           <Waitlist />
           <PaymentDetails />
+          <RatingComponent />
+          <TopAlternative />
+          <LatestOnProduct />
         </div>
       </div>
 
