@@ -3,8 +3,9 @@ import React, { Fragment } from "react";
 import { Spline_Sans } from "next/font/google";
 import { MantineProvider, ColorSchemeScript } from "@mantine/core";
 import "./global.css";
-import { PostHogProvider } from "posthog-js/react";
 import { PHProvider } from "./components/PHProvider";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 export const metadata = {
   title: "Pay Central - Wait list",
@@ -29,6 +30,7 @@ export default function RootLayout({ children }: { children: any }) {
             />
           </head>
           <body className={`${spline_sans.className} bg-white`}>
+          <ToastContainer />
             <MantineProvider
               theme={{
                 primaryColor: "blue",

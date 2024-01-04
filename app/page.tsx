@@ -1,4 +1,6 @@
-import { Select, TextInput } from "@mantine/core";
+"use client";
+
+import { Select, TextInput, LoadingOverlay } from "@mantine/core";
 import { CiSearch } from "react-icons/ci";
 import { FaGlobeAfrica } from "react-icons/fa";
 import Header from "./components/Header";
@@ -11,10 +13,13 @@ import PaymentDetails from "./components/RightCompnents/PaymentDetails";
 import RatingComponent from "./components/RightCompnents/RatingComponent";
 import TopAlternative from "./components/RightCompnents/TopAlternative";
 import LatestOnProduct from "./components/RightCompnents/LatestOnProduct";
+import { useState } from "react";
 
 export default function HomePage() {
+  const [loading, setLoading] = useState(false);
   return (
     <div>
+      <LoadingOverlay visible={loading} />
       <Header />
 
       <div className="flex flex-col lg:flex-row max-w-[1400px] mx-auto">
@@ -55,7 +60,7 @@ export default function HomePage() {
         </div>
 
         <div className="flex-1 bg-gray-100 pt-20 pr-5 pl-5 sm:pl-10 sm:pr-10">
-          <Waitlist />
+          <Waitlist setLoading={setLoading} />
           <PaymentDetails />
           <RatingComponent />
           <TopAlternative />
