@@ -1,19 +1,32 @@
-import { Rating } from "@mantine/core";
-import React from "react";
-import { FaRegBookmark } from "react-icons/fa";
+"use client";
 
-const CompanyCard = () => {
+import { Rating } from "@mantine/core";
+import React, { useEffect, useState } from "react";
+import { FaRegBookmark } from "react-icons/fa";
+import { ProviderTypes } from "../../types/waitlist";
+import Image from "next/image";
+
+type IProps = {
+  provider: ProviderTypes;
+};
+
+const CompanyCard = ({ provider }: IProps) => {
   return (
     <div className="p-4 bg-white shadow border flex justify-between w-full">
       <div className="flex items-center gap-[16px]">
         <div className="w-[124px] h-[130px]">
-          <img src="/images/Img.png" alt="" />
+          <img
+            src="https://davidinmichael.pythonanywhere.com/media/payment_gateway/Adyen_z7AJmbv.png"
+            // src={`https://davidinmichael.pythonanywhere.com/${provider.logo}`}
+
+            alt=""
+          />
         </div>
         <div className="flex flex-col gap-[10px]">
           <div className="flex flex-col gap-[8px]">
             <div className="font-Spline-Sans flex flex-col gap-[4px]">
               <h2 className="font-semibold text-[18px] text-[#332C2D]">
-                MoniePoint
+                {provider?.name}
               </h2>
               <p className="font-[400] text-[16px] text-[#403A3A]">
                 Powering the dreams of businesses in emerging markets

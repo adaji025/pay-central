@@ -1,5 +1,3 @@
-"use client";
-
 import { Select, TextInput, LoadingOverlay } from "@mantine/core";
 import { CiSearch } from "react-icons/ci";
 import { FaGlobeAfrica } from "react-icons/fa";
@@ -14,12 +12,11 @@ import RatingComponent from "./components/RightCompnents/RatingComponent";
 import TopAlternative from "./components/RightCompnents/TopAlternative";
 import LatestOnProduct from "./components/RightCompnents/LatestOnProduct";
 import { useState } from "react";
+import { countryList } from "./utils/country";
 
 export default function HomePage() {
-  const [loading, setLoading] = useState(false);
   return (
     <div>
-      <LoadingOverlay visible={loading} />
       <Header />
 
       <div className="flex flex-col lg:flex-row max-w-[1400px] mx-auto">
@@ -38,19 +35,15 @@ export default function HomePage() {
               size="md"
               leftSection={<CiSearch />}
               placeholder="Search product, services, category, industry..."
-              className="w-full sm:w-3/5"
+              className="w-full sm:w-4/5"
             />
             <Select
               size="md"
               leftSection={<FaGlobeAfrica />}
               placeholder="Location"
               className="w-full sm:w-1/5"
-            />
-            <Select
-              size="md"
-              leftSection={<CiSearch />}
-              placeholder="City"
-              className="w-full sm:w-1/5 hidden sm:inline"
+              data={countryList.map((country) => country)}
+              searchable
             />
           </div>
 
@@ -60,7 +53,7 @@ export default function HomePage() {
         </div>
 
         <div className="flex-1 bg-gray-100 pt-20 pr-5 pl-5 sm:pl-10 sm:pr-10">
-          <Waitlist setLoading={setLoading} />
+          <Waitlist />
           <PaymentDetails />
           <RatingComponent />
           <TopAlternative />
